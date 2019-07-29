@@ -1,0 +1,142 @@
+
+.footer {
+    background-color: rgba(0,0,0,1);
+    color: #888;
+    padding: 3.5em 2em;
+    
+    @include breakpoint(max-width $small) {
+        padding: 3em 1em;
+    }
+}
+
+.footer__wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+footer img {
+    width: 7em;
+    text-align: center;
+}
+
+div.footer--copyright {
+    text-align: center;
+    margin-top: 1.5em;
+}
+
+p.footer--main {
+    width: 80%;
+    margin: 1em auto 2.5em auto;
+    text-align: center;
+    
+    @include breakpoint(max-width $small) {
+        width: 80%;
+    }
+}
+
+div.footerNavWrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+div.footer--icons {
+    display: flex;
+    width: 15%;
+    justify-content: flex-end;
+    
+    @include breakpoint(max-width $medium) {
+        flex: 0 0 100%;
+        margin-top: 2.5em;
+        margin-bottom: 1em;
+        justify-content: center;
+    }
+}
+
+div.footer--icons a {
+    
+    @include breakpoint(max-width $medium) {
+        flex: initial;
+        
+    }
+}
+
+div.footer--icons a:not(:last-of-type) {
+    margin-right: 1em;
+}
+
+div.footer--icons i {
+    transition: color 300ms ease-out 50ms;
+    color: #888;
+    width: 1.5em;
+    height: 1.5em;
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1.5em;
+    font-size: 1.6em;
+}
+
+div.footer--icons a:first-of-type i:hover {
+    color: rgb(59, 89, 152);
+}
+
+div.footer--icons a:nth-of-type(2) i:hover {
+    color: rgb(203,32,39);
+}
+
+div.footer--icons a:last-of-type i:hover {
+    color: rgb(195,42,163);
+}
+
+.footer__navs {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+    @include breakpoint(max-width $medium) {
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    @include breakpoint(max-width $medium) {
+        justify-content: center;
+    }
+    
+}
+
+.footer__links {
+    color: $gold;
+    padding: 1em 1.25em;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: background-color 300ms ease-out, transform 300ms ease-out;
+    
+    &:hover {
+        color: $gold-dark;
+        background-color: rgba(255, 255, 255, 0.15);
+        transform: translateY(-3px);
+    }
+    
+    @include breakpoint(max-width $small) {
+        padding: 1em 1em;
+    }
+    
+}
+
+.footer__me {
+    color: $gold;
+}
+
+
+
+

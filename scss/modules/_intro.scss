@@ -1,0 +1,325 @@
+
+.intro {
+    @include breakpoint(1280px) {
+        padding: 6em calc(50% - 627px); //changed to add padding around 1280px
+    }
+    
+    &__grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        grid-column-gap: .5em;
+        margin: 4em 0;
+        
+        @include breakpoint(max-width $medium-small) {
+            grid-template-columns: 1fr;
+            grid-column-gap: 0;
+            grid-row-gap: 1em;
+        }
+    }
+    
+    /*****   OVERLAP GALLERY   ******/
+    /*&__gallery {
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        grid-template-rows: repeat(9, 1fr);
+        background-image: url('../img/scissors.jpg');
+        background-size: cover;
+    }
+    
+    &__img {
+        width: 100%;
+        border-radius: 2px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        transition: transform 300ms ease-out;
+        
+        &:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+            z-index: 60;
+        }
+        
+        &-1 {
+            grid-column: 3 / 8;
+            grid-row: 2 / 7;
+            z-index: 50;
+        }
+        
+        &-2 {
+            transform: translateX(2em);
+            grid-column: 5 / 10;
+            grid-row: 5 / 9;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            z-index: 55;
+            
+            &:hover {
+                transform: scale(1.1) translateX(2em);
+            }
+        }
+        
+    }*/
+    
+    /*****   SUMMARY   ******/
+    &__summary {
+        align-self: center;
+        
+        @include breakpoint(max-width $medium-small) {
+            padding: 3em;
+            font-size: 1.2em;
+        }
+        
+        @include breakpoint(max-width $small) {
+            padding: 2em 0;
+        }
+        
+        @include breakpoint(max-width $smallest) {
+            font-size: 1.1em;
+        }
+        
+        p:first-of-type::first-letter {
+            font-family: serif;
+            font-size: 4.6em;
+            line-height: .9;
+            float: left;
+            color: $gold-dark;
+            margin-right: .1em;
+        }
+        
+        p {
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+        
+        p:not(:last-of-type) {
+            margin-bottom: .8em;
+        }
+        
+    }
+    
+    &__link {
+        color: $gold-medium;
+        transition: color 300ms ease-out;
+        
+        &:hover {
+            color: $gold-dark;
+        }
+    }
+    
+
+    /*****    BRAND LOGOS    *****/
+    &__brands {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(8.437em, 1fr));
+        grid-gap: 2em;
+        width: 90%;
+        justify-items: center;
+        align-items: center;
+        margin: 0 auto;
+        
+        @include breakpoint(max-width $small) {
+            width: 100%;
+        }
+        
+    }
+    
+    &__brands__heading {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        grid-gap: .75em;
+        align-items: center;
+        color: $gold-diamond;
+        font-size: 1.4em;
+        font-weight: 500;
+        line-height: 1;
+        margin: 2em 0 2.5em 0;
+        text-transform: uppercase;
+        
+        &::before, &::after {
+            content: "";
+            height: .3125em;
+            border-radius: .625em;
+            background-image: linear-gradient(to right, $gold-diamond, transparent);
+        }
+        
+        &::before {
+            background-image: linear-gradient(to left, $gold-diamond, transparent);
+        }
+    }
+    
+    &__brands__img {
+        width: 9.375em;
+        height: 6.25em;
+        object-fit: cover;
+        opacity: .35;
+        filter: grayscale(100%);
+        transition: 400ms ease-out;
+        
+        &:hover {
+            opacity: 1;
+            filter: grayscale(0);
+        }
+    }
+      
+}
+
+
+/******** DIAMOND INTRO GRID  *********/
+
+@include breakpoint(max-width $largest) {
+    .img-clip-block {
+        align-self: center;
+    }
+}
+
+.img-clip-row {
+    text-align: center;
+    margin-top: -9.625em; 
+    
+    @include breakpoint(max-width $largest) {
+        margin-top: -7.725em;
+    }
+    
+    //font size 14.4px
+    @include breakpoint(max-width $large) {
+        margin-top: -7.15em;
+    }
+    
+    //font size 12.8px
+    @include breakpoint(max-width $medium) {
+        margin-top: -7.05em;
+    }
+    
+    @include breakpoint(max-width $smallest) {
+        margin-top: -6.2em;
+    }
+    
+    @include breakpoint(max-width $tiny) {
+        margin-top: -5.2em;
+    }
+}
+
+.img-clip-wrap {
+    display: inline-block;
+    width: 18.75em; /* was 300px */
+    height: 18.75em; /* was 300px */
+    background-image: url('https://res.cloudinary.com/jduquain/c_fill,f_auto,h_600,q_auto,w_600/v1564019205/eandb/diamond_lhkr7u.jpg'); /* 600x600 */
+    background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    
+    @include breakpoint(max-width $largest) {
+        width: 15em; 
+        height: 15em;
+        background-image: url('https://res.cloudinary.com/jduquain/c_fill,f_auto,h_480,q_auto,w_480/v1564019205/eandb/diamond_lhkr7u.jpg');
+    }
+    
+    //font size 14.4px
+    @include breakpoint(max-width $large) {
+        width: 14em; 
+        height: 14em;
+        background-image: url('https://res.cloudinary.com/jduquain/c_fill,f_auto,h_403,q_auto,w_403/v1564019205/eandb/diamond_lhkr7u.jpg');
+    }
+    
+    //font size 12.8px
+    @include breakpoint(max-width $medium) {
+        width: 13.8em; 
+        height: 13.8em;
+        background-image: url('https://res.cloudinary.com/jduquain/c_fill,f_auto,h_353,q_auto,w_353/v1564019205/eandb/diamond_lhkr7u.jpg'); 
+    }
+    
+    @include breakpoint(max-width $smallest) {
+        width: 12em; 
+        height: 12em; 
+        background-image: url('https://res.cloudinary.com/jduquain/c_fill,f_auto,h_307,q_auto,w_307/v1564019205/eandb/diamond_lhkr7u.jpg');
+    }
+    
+    //font size 12.8px
+    @include breakpoint(max-width $tiny) {
+        width: 10em; 
+        height: 10em; 
+        background-image: url('https://res.cloudinary.com/jduquain/c_fill,f_auto,h_256,q_auto,w_256/v1564019205/eandb/diamond_lhkr7u.jpg');
+    }
+}
+
+.img-clip-row:first-of-type {
+    margin-top: auto;
+}
+
+.img-clip-row:first-of-type .img-clip-wrap {
+    background-position: top;
+}
+
+.img-clip-row:nth-of-type(2) .img-clip-wrap:nth-of-type(odd) {
+    background-position: left;
+}
+
+.img-clip-row:nth-of-type(2) .img-clip-wrap:nth-of-type(even) {
+    background-position: right;
+}
+
+.img-clip-row:last-of-type .img-clip-wrap {
+    background-position: bottom;
+}
+
+.overlay {
+    transition: all 400ms linear;
+    background: rgba(171, 147, 116, 0.75);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+    
+    z-index: 888;
+}
+
+.overlay-content {
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 400;
+    font-size: 180%;
+    text-transform: uppercase;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    
+    @include breakpoint(max-width $largest) {
+        font-size: 150%;
+    }
+    
+    @include breakpoint(max-width $smallest) {
+        font-size: 130%;
+    }
+    
+    @include breakpoint(max-width $tiny) {
+        font-size: 120%;
+    }
+}
+
+.overlay-content img {
+    width: 100%;
+    height: auto;
+    
+    @include breakpoint(max-width $largest) {
+        width: 90%;
+    }
+}
+
+.img-clip-wrap:hover .overlay {
+    transition: all 0.4s ease-in;
+    background: none; /* transparent would also work */
+}
+
+
+
+
+
+
+
+
+
+

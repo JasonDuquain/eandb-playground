@@ -1,0 +1,48 @@
+kwes:
+
+<input type="text" name="name" rules="required|min:3|max:255">
+
+If you want to add a custom success message just add
+success-message=“This is a custom message” (this is an example)
+
+the span that wraps each input, select, textarea, and button iside a form is: kw-field-wrapper along with incrementing numbers...kw-field-wrapper-1,2,3 etc.
+
+to get the validation error to not mess up the layout add:
+
+.kwes-field-wrapper .help {
+    position: absolute
+}
+
+but may need to make .subscribe__field-prefixed is relatively positioned as well
+
+
+
+
+i would think the modal_close buttons would need the noZenscroll class but they are working properly
+
+use photoshop to darken it just a bit and maybe make a gradient from top to bottom that gets lighter as you go down since the text is at the top
+
+update orientation MQ to not happen on desktop/laptop..BUT..
+
+laptop 1280 x 570 so add some height queries are needed:
+
+@media (max-height: 600px){
+  //code for certain sects of laptop
+}
+
+and also some ipad/kindle styles and diff oreientations :)
+
+
+fix the services modal(s) from scaling down to zero on page load!!
+
+THIS WAS ADDED AND THE JS CLICK WAS REMOVED TO GET IT WORKING ON MOBILE EVEN WITH HTML HAVING SCROLL-BEHAVIOR: SMOOTH...THE SCROLL UP ON MOBILE IS NOT SMOOTH BUT IT AT LEAST WORKS:
+
+<button class="js-btt-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+    <i class="js-btt-btn-icon fa fa-chevron-up"></i>
+</button>
+
+
+POSSIBLE TO LAZY LOAD THE SQUARE APP FROM LOADING RIGHT AWAY??
+
+
+

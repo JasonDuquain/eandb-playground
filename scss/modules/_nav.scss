@@ -1,0 +1,200 @@
+
+
+.navigation {
+    padding: .75em 1.5em;
+    transition: background-color 350ms ease-in;
+    border-top: 1px solid $grey-light-2;
+    
+    @include breakpoint(1200px) {
+        padding: .75em calc(50% - 600px);
+    }
+    
+    @include breakpoint (max-width $medium-760) {
+        display: none;
+    }
+    
+    &__amp {
+        color: $gold;
+    }
+    
+    &__logo-text {
+        font-family: 'lucien_schoenschriftv_catRg', cursive;
+        font-size: 2.7em;
+        text-transform: none;
+    }
+    
+    &__list {
+        width: 70%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        transform: translateY(1px);
+    }
+    
+    &__item--hide {
+        margin-left: 2em;
+        display: none;
+        
+        & .navigation__link:link::after, & .navigation__link:visited::after {
+            display: none;
+        }
+    }
+
+    &__link:link, &__link:visited {
+        transition: all 300ms ease-out;
+        display: inline-block;
+        font-size: .85em;
+        font-weight: 500;
+        color: $grey-dark-1;
+        text-transform: uppercase;
+        letter-spacing: .03em;
+        position: relative;
+        padding-bottom: .4em;
+    }
+    
+    &__link:link:hover, &__link:visited:hover {
+        color: $gold-dark;
+    }
+
+    &__link:link::after, &__link:visited::after {
+        transition: left 300ms ease-in, right 300ms ease-in;
+        position: absolute;
+        content: "";
+        left: 50%;
+        right: 50%;
+        bottom: 0;
+        height: 2px;
+        background-color: $gold-dark;
+    }
+    
+    &__link:hover::after {
+        left: 0;
+        right: 0;
+    }
+    
+    &.fixed {
+        position: fixed;
+        z-index: 200;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: .75em 2em; 
+        background-color: rgba(0,0,0,.5);
+        box-shadow: 0 3px 3px rgba(0,0,0,.3);
+        overflow: hidden; /* added to keep the sticky nav from expanding when logo animation happens */
+        
+        & .navigation__list {
+            width: 100%;
+            align-items: center;
+            max-width: 1280px;
+        }
+        
+        & .navigation__item--hide {
+            margin-right: auto;
+            display: block;   
+        }
+        
+        & .navigation__item {
+            margin-left: 2em;
+        }
+        
+        & .navigation__item--hide {
+            margin-left: 0;
+        }
+        
+        & .navigation__link:link, & .navigation__link:visited {
+            color: #fff;
+        }
+        
+        & .navigation__link.active:link, & .navigation__link.active:visited {
+            color: $gold;
+        }
+        
+        & .navigation__link.active:link::after, & .navigation__link.active:visited::after {
+            background-color: $gold;
+            color: $gold;
+            left: 0;
+            right: 0;
+            transition-delay: 300ms; /* added to try to keep other links from starting to animate this on the way down/up to the target link */
+        }
+        
+        & .navigation__link:link::after, & .navigation__link:visited::after {
+            background-color: $gold;
+        }
+ 
+    }
+}
+
+
+@include breakpoint (max-width $medium-760) {
+
+    .navigation.hamburger-on {
+        display: block;
+    }
+
+    .navigation.hamburger-on .navigation__list {
+        flex-direction: column;
+        width: 80%;
+    }
+
+    .navigation.hamburger-on .navigation__item {
+        background-color: $grey-dark-3;
+        text-align: center;
+    }
+
+    .navigation.hamburger-on .navigation__item:not(:last-of-type) {
+        border-bottom: 1px dotted #fff;
+    }
+
+    .navigation.hamburger-on .navigation__link {
+        color: #fff;
+        padding: 1em;
+        display: block;
+        font-size: .9em;
+        transform: translateY(1px);
+
+        &:hover {
+            background-color: $gold;
+            color: #fff;
+        }
+    }
+
+    .navigation.hamburger-on .navigation__link:hover::after {
+        left: 50%;
+        right: 50%;
+    }
+    
+    
+    
+    /***** FIXED HEADER  ******/
+    .navigation.hamburger-on.fixed .navigation__item {
+        width: 60%;
+        margin-left: 0;
+        
+        @include breakpoint (max-width $small) {
+            width: 70%;
+        }
+        
+    }
+    
+    .navigation.hamburger-on.fixed .navigation__item--hide {
+        display: none;
+    }
+        
+    .navigation.hamburger-on.fixed .navigation__link.active:link, .navigation.hamburger-on.fixed .navigation__link.active:visited {
+        color: $gold;
+        
+        &:hover {
+            color: #fff;
+        }
+    }
+    
+    .navigation.hamburger-on.fixed .navigation__link.active:link::after, .navigation.hamburger-on.fixed .navigation__link.active:visited::after {
+        left: 50%;
+        right: 50%;
+    }
+    
+
+}
+
+

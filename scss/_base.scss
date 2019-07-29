@@ -1,0 +1,94 @@
+
+@font-face {
+    font-family: 'lucien_schoenschriftv_catRg';
+    src: url('../fonts/Lucian Schoenschrift CAT-webfont.woff2') format('woff2'),
+         url('../fonts/Lucian Schoenschrift CAT-webfont.woff') format('woff'),
+         url('../fonts/Lucian Schoenschrift CAT-webfont.eot'),
+         url('../fonts/Lucian Schoenschrift CAT-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+:root {
+    font-size: 1em;
+    box-sizing: border-box;
+    
+    scroll-behavior: smooth;
+    
+    @include breakpoint(max-width $large) {
+        font-size: .9em;
+    }
+    
+    @include breakpoint(max-width $medium) {
+        font-size: .8em;
+    }
+    
+}
+
+// less vivid red for active links
+a:active {
+    color: rgb(191, 43, 88);
+}
+
+body {
+    font-size: 100%;
+    font-family: 'Raleway', serif;
+    color: #333;
+    
+    /* keeps horizontal scrollbars from appearing when items are animated to the left or right of the viewport */
+    overflow-x: hidden; 
+    background-color: $white-slight-dark;
+}
+
+section {
+    padding: 8em 2em;
+    
+    @include breakpoint(max-width $medium) {
+        padding: 5em 1em;
+    }
+}
+
+.pre-heading {
+    text-transform: uppercase;
+    text-align: center;
+    color: $grey-dark-3;
+    margin-bottom: .3em;
+}
+
+.sect-heading {
+    font-size: 2.3em;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    margin-bottom: .2em;
+    color: rgb(51, 51, 51);
+}
+
+.sect-heading-img {
+    height: .8125em;
+    width: 8.875em;
+    background-image: url('../img/heading-img.svg');
+    margin: 0 auto 4em auto;
+    opacity: .5;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,545 @@
+
+.services {
+    
+    @include breakpoint (max-width $smallest) {
+        padding-right: 0;
+        padding-left: 0;
+    } 
+    
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        grid-gap: 1em;
+        max-width: 1280px;
+        margin: 0 auto;
+        align-items: center;
+        
+        @include breakpoint (max-width $huge) {
+           grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+        }
+        
+        @include breakpoint (max-width 1050px) {
+           grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            align-items: initial;
+            justify-items: center;
+        }
+        
+        @include breakpoint (max-width 900px) {
+           grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            grid-row-gap: 2.5em;
+            font-size: 1.1em;
+        }
+        
+        @include breakpoint (max-width $medium) {
+            font-size: 1.2em;
+        }
+        
+        @include breakpoint (max-width $small) {
+           grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+        
+        @include breakpoint (max-width $smallest) {
+           grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+        
+        @include breakpoint (max-width $tiny) {
+           grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+        }
+        
+    }
+
+
+    &__wrap {
+        transition: all 600ms ease-in;
+        opacity: 0;
+    }
+    
+    &__wrap.animate-in:first-of-type {
+        opacity: 1;
+    }
+    
+    &__wrap.animate-in:nth-of-type(2) {
+        opacity: 1;
+        //transition-delay: 400ms; turn this delay off at mobile widths
+    }
+    
+    &__wrap.animate-in:last-of-type {
+        opacity: 1;
+        //transition-delay: 800ms; turn this delay off at mobile widths
+    }
+
+    &__main {
+        width: 400px; //removing 1px fixed short vertical line that appear from img
+        position: relative;
+        border-radius: 3px;
+        box-shadow: 0 0 2px 2px rgba($grey-light-2,.3);
+        
+        
+        @include breakpoint (max-width $hugest) {
+           //width: 310px;
+            width: 350px;
+        }
+        
+        @include breakpoint (max-width $huge) {
+           width: 310px;
+        }
+        
+        @include breakpoint (max-width 1050px) {
+           width: 400px;
+        }
+        
+        @include breakpoint (max-width 900px) {
+           width: 500px;
+        }
+        
+        @include breakpoint (max-width $small) {
+           width: 400px;
+        }
+        
+        @include breakpoint (max-width $smallest) {
+           width: 350px;
+        }
+        
+        @include breakpoint (max-width $tiny) {
+           width: 310px;
+        }
+    }
+    
+    &__image-wrap {
+        position: relative;
+    }
+    
+    &__image-wrap::after {
+        position: absolute;
+        content: "";
+        background-image: url('../img/curve-overlay.svg');
+        left: 0;
+        right: 0;
+        bottom: 0; 
+        height: 52px;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        
+        @include breakpoint (max-width $hugest) {
+            height: 45px;
+            //transform: scaleY(1.02); //this fixes issue of horizonal line from img showing
+        }
+        
+        @include breakpoint (max-width $huge) {
+           height: 40px;
+        }
+        
+        @include breakpoint (max-width 1050px) {
+           height: 52px;
+        }
+        
+        @include breakpoint (max-width 900px) {
+           height: 65px;
+        }
+        
+        @include breakpoint (max-width $small) {
+           height: 52px;
+        }
+        
+        @include breakpoint (max-width $smallest) {
+           height: 45px;
+        }
+        
+        @include breakpoint (max-width $tiny) {
+           height: 40px;
+        }
+    }
+    
+    &__image {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    
+    &__description {
+        padding: 2em;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__border {
+        height: 4px;
+        border-top: 1px solid $grey-light-2;
+        border-bottom: 1px solid $grey-light-2;
+        margin: 1em 0;
+    }
+
+    &__description-heading {
+         font-size: 1.4em;
+         text-transform: uppercase;
+         margin: .3em 0 .85em 0;
+         color: $grey-dark-2;
+         font-weight: 300;
+    }
+
+    &__list {
+        color: $grey-dark-1;
+        margin-bottom: 1em;
+    }
+    
+    &__item {
+        display: flex;
+        align-items: center;
+    }
+    
+    &__item + &__item {
+        margin-top: .6em;
+    }
+    
+    .fa {
+        font-size: 1.3em;
+        display: inline-block;
+        color: $gold-dark;
+        margin-right: .25em;
+    }
+    
+    &__link {
+        color: $grey-dark-2;
+        text-transform: uppercase;
+        font-weight: 700;
+        display: inline-block;
+        position: relative;
+        padding-bottom: .3em;
+    }
+    
+    &__link:hover {
+        color: $grey-dark-1;
+        transition: color 300ms ease-in;
+    }
+    
+    &__link::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        content: "";
+        height: 1px;
+        transform: scaleX(0);
+        transform-origin: left center;
+        z-index: 88;
+        background-color: currentColor;
+        transition: transform 350ms ease-out;
+    }
+    
+    &__link:hover::after {
+        transform: scaleX(1);
+    }
+    
+    &__special {
+        max-width: 33%;
+        padding: 1.5em;
+        margin: 5em auto 0 auto;
+        border-top: .625em solid $gold-dark;
+        border-bottom: .625em solid $gold-dark;
+        border-radius: 3em;
+        background-image: linear-gradient(#fff, #fefaf0);
+    }
+    
+    &__special-heading {
+        text-align: center;
+        font-weight: 300;
+        text-transform: uppercase;
+        font-size: 1.6em;
+        color: $gold-dark;
+        margin-bottom: 1em;
+    }
+    
+    &__special-month {
+        font-weight: 500;
+    }
+    
+    &__special-para {
+        font-size: 1.2em;
+        line-height: 1.4; 
+    }
+    
+    
+    /**********   SERVICES TABLE LIST   **********/
+    &__table-wrap {
+        
+        display: none;
+        
+        width: 70%;
+        position: relative;
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(0);
+        transition: all 400ms ease-out;
+        
+        @include breakpoint (max-width $medium-small) {
+            width: 80%;
+        }
+        
+        @include breakpoint (max-width $small) {
+            width: 85%;
+        }
+        
+        @include breakpoint (max-width $smallest) {
+            width: 90%;
+        }
+    }
+    
+    &__table-wrap.enabled {
+        display: block;
+    }
+    
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+        
+        /* only do a bottom radius as the caption has a top radius  */
+        border-radius: 0 0 12px 12px;
+        
+        /* added this for border-radius to work */
+        overflow: hidden;
+        
+
+        &-caption {
+            padding: .25em 0 .25em 0;
+            text-align: center;
+            font-size: 3em;
+            color: #333;
+            background-color: lighten($gold, 15%);
+            
+            /* mozilla needs the caption to have a border radius in order for the top of the table to have a border radius  */
+            border-radius: 12px 12px 0 0;
+            
+            @include breakpoint (max-width $medium-small) {
+                font-size: 2.8em;
+            }
+            
+            @include breakpoint (max-width $small) {
+                font-size: 2.4em;
+            }
+            
+            @include breakpoint (max-width $smallest) {
+                font-size: 1.7em;
+            }
+            
+        }
+        
+        &-caption-span {
+            font-family: 'Tangerine', cursive;
+            line-height: .7;
+            text-align: center;
+            display: block;
+            font-size: 1.8em;
+            color: $gold-dark;
+            
+            @include breakpoint (max-width $medium-small) {
+                font-size: 1.6em;
+            }
+            
+            @include breakpoint (max-width $medium-small) {
+                font-size: 2em;
+            }
+            
+        }
+      
+        tr:nth-of-type(odd){
+          background-color: lighten($gold, 15%);
+        }
+        
+        tr:nth-of-type(even){
+          background-color: $gold;
+        }
+        
+        th {
+            text-align: left;
+            padding: 0 .75em;
+            text-transform: uppercase;
+            font-size: 1.6em;
+            font-weight: 700;
+            
+            @include breakpoint (max-width $medium-small) {
+                font-size: 1.4em;
+            }
+            
+            @include breakpoint (max-width $small) {
+                font-size: 1.3em;
+            }
+            
+            @include breakpoint (max-width $smallest) {
+                font-size: 1.1em;
+            }
+        }
+        
+        td {
+            padding: .75em 1em .75em 1.6em;
+            font-weight: 500;
+            
+            @include breakpoint (max-width $medium-small) {
+                padding: .75em 1em .75em 1.4em;
+            }
+            
+            @include breakpoint (max-width $small) {
+                padding: .75em .75em .75em 1.3em;
+            }
+            
+            @include breakpoint (max-width $smallest) {
+                padding: .75em .75em .75em 1.1em;
+                font-size: .9em;
+            }
+        }
+    } 
+
+}
+
+
+/** Animate services sects on scroll  ***/
+
+/*
+
+.services__grid.animate-in .services__wrap {
+    transform: translateX(0); 
+    opacity: 1;
+}
+
+*/
+
+/********  TABLE WRAPPER/MODAL STYLES  **********/
+.cut-and-design_wrap, .color_wrap, .additional_wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background-color: rgba(0,0,0,.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; 
+    pointer-events: none;
+    transition: all 400ms ease-out;
+    
+    &:target {
+        opacity: 1;
+        pointer-events: auto;
+    }
+     
+    &:target .services__table-wrap {
+        opacity: 1;
+        transform: scale(1);
+        pointer-events: auto;
+    } 
+    
+}
+
+.close_modal {
+    position: absolute;
+    display: block;
+    font-size: 3em;
+    top: 0;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    line-height: .9em;
+    cursor: pointer;
+    transition: all 300ms ease-out;
+    color: $grey-dark-1;
+    border-top-right-radius: 12px;
+}
+
+.close_modal:hover {
+    color: #fff;
+}
+
+
+//wrapper to ensure a click or tap anywhere closes the modal
+.wrap-close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* iphone5 */
+
+@media only screen 
+  and (min-device-width: 325px) 
+  and (max-device-width: 573px)
+  and (orientation: portrait) {
+      .services__table-wrap {
+        width: 90%;
+        color: #111;
+    }
+    
+    .services__table-caption {
+        font-size: 1.4em;
+    }
+    
+    .services__table-caption-span {
+        font-size: 2.2em;
+    }
+    
+    .services__table th {
+        font-size: .9em;
+        
+    }
+}
+
+/* iphone5 */
+
+@media only screen 
+  and (min-device-width: 380px) 
+  and (max-device-width: 673px) 
+  and (orientation: portrait) { 
+    .services__table-wrap {
+        width: 90%;
+        color: #111;
+    }
+    
+    .services__table-caption {
+        font-size: 1.4em;
+    }
+    
+    .services__table-caption-span {
+        font-size: 2.2em;
+    }
+    
+    .services__table th {
+        font-size: .9em;
+        
+    }
+}
+
+/*********** LANDSCAPE STYLES and laptops that are not very high i.e 1280 x 570 ***********/
+
+@media screen and (orientation: landscape) and (max-height: 600px)  {
+    
+    .services__table-wrap {
+        width: 68%;
+        color: #111;
+    }
+    
+    .services__table-caption {
+        font-size: 1.4em;
+    }
+    
+    .services__table-caption-span {
+        font-size: 2.2em;
+    }
+    
+    .services__table th {
+        font-size: .9em;
+        
+    }
+    
+    .services__table td {
+        font-size: .8em;
+        padding: .50em .50em .50em 1.1em;
+    }
+
+}
+
+

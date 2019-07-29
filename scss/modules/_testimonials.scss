@@ -1,0 +1,245 @@
+
+// darkend the pre-heading and hdg img when skewed gradient is removed as now the heading is completely in front of the img
+@include breakpoint(max-width $small) {
+    
+    .testimonial .pre-heading {
+        color: $grey-dark-1;
+    }
+
+    .testimonial .sect-heading-img {
+        color: $grey-dark-1;
+        opacity: 1;
+    }
+ 
+}
+
+
+.testimonial {
+    background-image: linear-gradient(105deg, #fff, #fff, 50%, transparent 50%), url('https://res.cloudinary.com/jduquain/c_scale,f_auto,q_auto,w_1920/v1563456911/eandb/bg-testimonial.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 4em 2em 4em 2em;
+    height: 100vh;
+    
+    @include breakpoint(max-width $small) {
+        background-image: url('https://res.cloudinary.com/jduquain/c_scale,f_auto,q_auto,w_1920/v1563456911/eandb/bg-testimonial.jpg');
+        background-position: 50% 0%;
+        
+        // this looks like it is fixing the issue of the bg being completely blurred
+        background-attachment: scroll;
+        
+        padding: 6em .5em 2em .5em;
+    }
+    
+    // extra btm margin to move slider down a bit
+    & .sect-heading-img {
+        margin-bottom: 5em;
+        
+        @include breakpoint(max-width $medium) {
+            margin-bottom: 4em;
+        }
+        
+        @include breakpoint(max-width $small) {
+            margin-bottom: 5em;
+        }
+    }
+
+    
+    &__main-wrap {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 10em;
+
+        position: relative;
+        
+        @include breakpoint(max-width $medium) {
+            padding: 0 4em;
+        }
+        
+        @include breakpoint(max-width $medium-small) {
+            padding: 0 2em;
+        }
+        
+        @include breakpoint(max-width $smallest) {
+            padding: 0 .75em;
+        }
+        
+        @include breakpoint(max-width $tiny) {
+            padding: 0 .35em;
+        }
+        
+    }
+    
+    &__cell {
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid $gold-dark;
+        
+        position: relative;
+        
+        // temp fix for height issue
+        padding-bottom: 1.5em; 
+        
+    }
+    
+    &__cell::after {
+      content: "";
+      position: absolute;
+      box-shadow: 1px 1px 0 0 rgba(255, 255, 255, 1);
+      width: 1em; 
+      height: 1em; 
+      border-right: 1px solid $grey-light-2;
+      border-bottom: 1px solid $grey-light-2;
+      background-color: #fff;
+        
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 3.80em; /*was -8px*/
+      transform: rotate(45deg);
+      z-index: 2000;
+        
+        @include breakpoint(max-width $tiny) {
+            bottom: 3.40em;
+        }
+    }
+    
+    // this is the wrap inside the cell 
+    &__wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid $grey-light-2;
+        padding: 1em;
+        
+        @include breakpoint(max-width $smallest) {
+            padding: .7em;
+        }
+        
+    }
+    
+    &__image {
+        width: 5em;
+        height: 5em;
+        border-radius: 50%;
+        border: 1px solid $grey-dark-2;
+        display: block;
+        
+        @include breakpoint(max-width $smallest) {
+            width: 3.5em;
+            height: 3.5em;
+        }
+    }
+
+    &__name {
+        font-size: 1.3em;
+        font-style: italic;
+        color: $grey-dark-1;
+        text-align: center;
+        
+        margin-top: 1em;
+        transform: translateX(7px);
+        
+        @include breakpoint(max-width $tiny) {
+            font-size: 1.1em;
+        }
+        
+    }
+    
+    &__review {
+        font-size: 1.1em;
+        line-height: 1.6;
+        color: darken($grey-dark-1, 8%);
+        padding: 1.5em;
+        position: relative;
+        z-index: 2;
+         
+        border-bottom: 1px solid $grey-light-2;
+        
+        @include breakpoint(max-width $medium-760) {
+            font-size: 1.08em;
+            padding: .5em;
+            line-height: 1.3;
+        }
+        
+        &::before {
+            content: "\201C";
+            color: $gold;
+            font-size: 12em;
+            line-height: .5;
+            position: absolute;
+            top: .13em;
+            left: -.037em;
+            font-family: sans-serif;
+            z-index: -1;
+        }
+        
+    }
+    
+}
+
+/*********** LANDSCAPE STYLES ***********/
+@media screen and (orientation: landscape) and (min-device-width: 319px) and (max-device-width: 812px) {
+    
+    .testimonial {
+    
+       height: 190vw;
+       background-image: url('https://res.cloudinary.com/jduquain/c_scale,f_auto,q_auto,w_1920/v1563456911/eandb/bg-testimonial.jpg');
+       background-position: 50% 0%;
+        padding: 6em 0 4em 0;
+        
+       // this looks like it is fixing the issue of the bg being completely blurred
+       background-attachment: scroll; 
+    
+    } 
+    
+    .testimonial .pre-heading {
+        color: $grey-dark-1;
+    }
+
+    .testimonial .sect-heading-img {
+        color: $grey-dark-1;
+        opacity: 1;
+        margin-bottom: 2em;
+    }
+  
+}
+
+
+//laptop with screens not very tall (work laptop)
+@media screen and (orientation: landscape) and (max-height: 585px)  {
+    
+    .testimonial {
+    
+       height: 90vw;
+       background-image: url('https://res.cloudinary.com/jduquain/c_scale,f_auto,q_auto,w_1920/v1563456911/eandb/bg-testimonial.jpg');
+       background-position: 50% 0%;
+       padding: 6em 0 3em 0;
+        
+       // this looks like it is fixing the issue of the bg being completely blurred
+       background-attachment: scroll; 
+    
+    } 
+    
+    .testimonial__main-wrap {
+        padding: 0 9em;
+    }
+    
+    .testimonial__review {
+        font-size: 1em;
+        line-height: 1.4;
+    }
+    
+    .testimonial .pre-heading {
+        color: $grey-dark-1;
+    }
+
+    .testimonial .sect-heading-img {
+        color: $grey-dark-1;
+        opacity: 1;
+        margin-bottom: 4em;
+    }
+  
+}
+
+
+

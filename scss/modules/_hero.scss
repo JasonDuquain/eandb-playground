@@ -1,0 +1,136 @@
+
+.large-hero {
+    height: 55vw;    
+    border-bottom: .6vw solid $gold;
+    position: relative;
+    overflow: hidden;
+    
+    @include breakpoint (max-width $large) {
+        height: 64vw;
+    }
+    
+    @include breakpoint (max-width $medium-small) {
+        height: 90vw;
+    }
+    
+    @include breakpoint (max-width $small) {
+        height: 150vw;
+    }
+    
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        object-position: 60% 100%;
+    }
+    
+    
+    &__overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: #333 center/cover no-repeat;
+        z-index: 0;
+        filter: blur(4px);
+        opacity: 0;
+    }
+    
+    &__main-heading {
+        text-align: center;
+        font-family: 'Tangerine', cursive;
+        text-shadow: 1px 1px 2px rgba(0,0,0,.8);
+        font-size: 3.8em;
+        line-height: 1.1;
+        color: #fff;
+        margin: 0;
+        position: absolute;
+        top: 10%;
+        left: 49%; // move it a touch left to better line up with main e and b text
+        transform: translate(-50%, 0%);
+        width: 76%;
+        z-index: 1;
+        
+        @include breakpoint (max-width $medium-small) {
+            width: 81%;
+        }
+        
+        @include breakpoint (max-width $small) {
+            font-size: 3.7em;
+            width: 86%;
+        }
+        
+        @include breakpoint (max-width $smallest) {
+            font-size: 3.51em;
+            width: 97%;
+        }
+        
+        @include breakpoint (max-width $tiny) {
+            font-size: 3em;
+            width: 98%;
+        }
+        
+    }
+    
+    &__quote {
+        opacity: 0;
+        display: block;
+        //animation: fade-in 800ms 700ms ease-in both;
+    }
+    
+    &__quote--2 {
+        //animation-delay: 2000ms;
+    }
+
+    &__quote--3 {
+        //animation-delay: 4000ms;
+    }
+
+    &__quote--4 {
+        font-family: 'Raleway', sans-serif;
+        font-size: .5em;
+        font-weight: 300;
+        //animation-delay: 5300ms;
+        display: block;
+        text-align: right;
+        margin-top: .85em;
+    }
+    
+    &__amp {
+        font-size: 1.4em;
+        line-height: .6;
+    }
+    
+    &__amp--right {
+        margin-left: 13px;
+    }
+
+}
+
+@keyframes fade-in {
+    
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.large-hero.loaded .large-hero__quote {
+    animation: fade-in 800ms 700ms ease-in both;
+}
+
+.large-hero.loaded .large-hero__quote--2 {
+    animation-delay: 2000ms;
+}
+
+.large-hero.loaded .large-hero__quote--3 {
+    animation-delay: 4000ms;
+}
+
+.large-hero.loaded .large-hero__quote--4 {
+    animation-delay: 5300ms;
+}
+
+
